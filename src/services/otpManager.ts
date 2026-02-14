@@ -26,7 +26,7 @@ export function validateOTP(email:string,input:string) : OTPResult{
     if(Date.now() > record.expiresAt){
         return {success: false, reason: "OTP_EXPIRED"};
     }
-    if(record.attempts<=3){
+    if(record.attempts>=3){
         return {success: false, reason: "Crossed_Maximum_Attempts"}
     }
     if(record.otp!== input){
