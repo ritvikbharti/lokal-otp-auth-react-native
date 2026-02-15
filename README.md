@@ -129,10 +129,10 @@ Each log entry includes event name, email, and timestamp for traceability.
 ## Application Screenshots
 
 ### Login Screen
-![Login Screen](screenshots/LogInScreen.jpeg)
+![Login Screen](assets/screenshots/LogInScreen.jpeg)
 
 ### OTP Screen
-![OTP Screen](screenshots/OtpScreen.jpeg)
+![OTP Screen](assets/screenshots/OtpScreen.jpeg)
 
 ### Session Screen
-![Session Screen](screenshots/SessionScreen.jpeg)
+![Session Screen](assets/screenshots/SessionScreen.jpeg)
