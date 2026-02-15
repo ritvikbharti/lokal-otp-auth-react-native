@@ -8,7 +8,7 @@ import { validateOTP } from "../services/otpManager";
 
 type Props = NativeStackScreenProps<RootStackParamList, "OTP">;
 
-export default function otpScreen({route,navigation}:Props){
+export default function OtpScreen({route,navigation}:Props){
     const {email} = route.params;
     const [otp,setOtp] = useState("");
     const [error,setError] = useState("");

@@ -12,10 +12,7 @@ export default function SessionScreen({ navigation }: Props) {
   const seconds = String(Math.floor((time % 60000) / 1000)).padStart(2, "0");
 
   const logout = () => {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "Login" }],
-    });
+    navigation.reset({index: 0,routes: [{ name: "Login" }], });
   };
 
   return (

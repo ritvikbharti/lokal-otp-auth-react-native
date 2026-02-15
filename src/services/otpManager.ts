@@ -24,6 +24,8 @@ export function validateOTP(email:string,input:string) : OTPResult{
         return {success: false, reason: "NO_OTP"};
     }
     if(Date.now() > record.expiresAt){
+        // console.log(Date.now());
+        
         return {success: false, reason: "OTP_EXPIRED"};
     }
     if(record.attempts>=3){
