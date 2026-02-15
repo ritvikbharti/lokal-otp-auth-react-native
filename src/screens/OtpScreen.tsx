@@ -16,12 +16,13 @@ export default function otpScreen({route,navigation}:Props){
         const result = validateOTP(email,otp);
 
         if(result.success){
+            console.log("OTP_VALIDATION_SUCCESSFULL");
+            
             navigation.navigate("Session");
         }else{
             setError(result.reason ?? "Invalid OTP");
         }
     }
-
 
 return (
     <View style={styles.container}>
@@ -40,7 +41,6 @@ return (
       <TouchableOpacity style={styles.button} onPress={verifyOtp}>
         <Text style={styles.buttonText}>Verify</Text>
       </TouchableOpacity>
-
       {error ? <Text style={styles.error}>{error}</Text> : null}
     </View>
   );
