@@ -123,3 +123,16 @@ Each log entry includes event name, email, and timestamp for traceability.
         Minor formatting and presentation suggestions
 
         All authentication logic, validation flow, and architectural decisions were implemented based on my own understanding. GPT was used as a documentation and structuring assistant.
+
+
+
+## Application Screenshots
+
+### Login Screen
+![Login Screen](screenshots/LogInScreen.jpeg)
+
+### OTP Screen
+![OTP Screen](screenshots/OtpScreen.jpeg)
+
+### Session Screen
+![Session Screen](screenshots/SessionScreen.jpeg)
