@@ -4,6 +4,7 @@ import {View, TextInput,Text,StyleSheet,TouchableOpacity,
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../types/navigation";
 import { validateOTP } from "../services/otpManager";
+import { logEvent } from "../services/analytics"; 
 
 
 type Props = NativeStackScreenProps<RootStackParamList, "OTP">;
@@ -12,17 +13,17 @@ export default function OtpScreen({route,navigation}:Props){
     const {email} = route.params;
     const [otp,setOtp] = useState("");
     const [error,setError] = useState("");
-    const verifyOtp = ()=>{
-        const result = validateOTP(email,otp);
+    const verifyOtp = async () => {
+  const result = validateOTP(email, otp);
 
-        if(result.success){
-            console.log("OTP_VALIDATION_SUCCESSFULL");
-            
-            navigation.navigate("Session");
-        }else{
-            setError(result.reason ?? "Invalid OTP");
-        }
-    }
+  if (result.success) {
+    await logEvent("OTP_VALIDATION_SUCCESS");
+    navigation.navigate("Session");
+  } else {
+    await logEvent("OTP_VALIDATION_FAILURE");
+    setError(result.reason ?? "Invalid OTP");
+  }
+};
 
 return (
     <View style={styles.container}>

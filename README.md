@@ -1,6 +1,11 @@
 # lokal-otp-auth-react-native
 Passwordless login
 
+Setup----Follow the below steps to setup the project
+    git clone currRepo
+    cd currRepo
+    npm intsall
+    npm start || npm run ios
 OTP Authentication – Documentation
 1. OTP Logic and Expiry Handling
 
@@ -136,3 +141,5 @@ Each log entry includes event name, email, and timestamp for traceability.
 
 ### Session Screen
 ![Session Screen](assets/screenshots/SessionScreen.jpeg)
+
+![Async Logs](assets/screenshots/logs.png)

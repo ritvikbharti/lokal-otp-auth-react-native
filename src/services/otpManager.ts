@@ -32,10 +32,12 @@ export function validateOTP(email:string,input:string) : OTPResult{
         return {success: false, reason: "Crossed_Maximum_Attempts"}
     }
     if(record.otp!== input){
+        // console.log("Wrong otp entered");
+        
         record.attempts++;
         return {success: false, reason: "Wrong_Otp"};
 
     }
-
+    
     return {success: true};
 }

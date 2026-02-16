@@ -3,6 +3,7 @@ import {View,TextInput,Text,StyleSheet,TouchableOpacity} from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../types/navigation";
 import {generateOtp} from "../services/otpManager"
+import { logEvent } from "../services/analytics"; 
 
 
 type Props = NativeStackScreenProps<RootStackParamList, "Login">;
@@ -10,12 +11,14 @@ type Props = NativeStackScreenProps<RootStackParamList, "Login">;
 
 export default function LoginScreen({navigation} :Props){
     const [email,setEmail] = useState("");
-    const sendOtp = ()=>{
-        const otp = generateOtp(email);
-        console.log("Generated OTP: ",otp);
-        navigation.navigate("OTP",{email})
-        
-    };
+   const sendOtp = async () => {
+  const otp = generateOtp(email);
+  console.log("Generated OTP:", otp);
+
+  await logEvent("OTP_GENERATED");
+
+  navigation.navigate("OTP", { email });
+};
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Login with OTP</Text>
